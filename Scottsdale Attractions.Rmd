@@ -1,0 +1,31 @@
+---
+title: "Interactive Map Example"
+author: "tldc01"
+date: "May 23, 2017"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r, echo=FALSE}
+library(leaflet)
+df<-data.frame(lat=c(33.6019, 33.547375, 33.5141, 33.5150, 33.5624),
+               lng=c(-111.9818,-111.8856, -111.8839, -111.9593, -111.9357))
+locs<-c("<a href='http://www.theparadisevalleymall.com/Directory/Map/'>Paradise Valley Mall</a>",
+        "<a href='http://saltriverfields.com'>Salt River Fields</a>",
+        "<a href='http://ec.nau.edu/AZCampuses/Scottsdale'>NAU</a>",
+        "<a href='https://www.phoenix.gov/parks/trails/locations/camelback-mountain'>Camelback Mountain</a>",
+        "<a href='http://www.golfarizona.com/courses/scottsdale/camelback-golf-club.htm'>Camelback Golf Club</a>")
+df %>% leaflet() %>% addTiles() %>% addMarkers( popup=locs)
+```
+
+## Embedded Application
+
+
+
+
